@@ -5,5 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sky & Architecture photoblog</title>
 </head>
-<body> Мій сайт </body>
+<body>
+    <header>
+        <h1>Мій Фотоблог</h1>
+        <a href="https://www.instagram.com/purp1e_penguin?igsh=MWkycXZxNXdhYjBqaA==">Мій інстаграм</a>
+        <nav>
+            <ul>
+                <li><a href="#">Головна</a></li>
+                <li><a href="#">Природа</a></li>
+                <li><a href="#">Небо</a></li>
+                <li><a href="#">Архітектура</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div id="main-content">
+        <section>
+            <h2>Природа</h2>
+            <div class="gallery">
+                <img src="images/nature1.jpg" alt="Природа 1" width="500px">
+                <img src="images/nature2.jpg" alt="Природа 2" width="500px">
+            </div>
+            <p>Текст про природу...</p>
+            <ul>
+                <li>Елемент списку 1</li>
+                <li>Елемент списку 2</li>
+            </ul>
+            <form>
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        
+        <section>
+            <h2>Небо</h2>
+            <div class="gallery">
+                <img src="images/sky1.jpg" alt="Небо 1" width="500px">
+                <img src="images/sky2.jpg" alt="Небо 2" width="500px">
+            </div>
+            <p>Текст про небо...</p>
+            <ol>
+                <li>Елемент нумерованого списку 1</li>
+                <li>Елемент нумерованого списку 2</li>
+            </ol>
+            <form>
+                <label for="comment">Коментар:</label><br>
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        
+        <section>
+            <h2>Архітектура</h2>
+            <div class="gallery">
+                <img src="images/architecture1.jpg" alt="Архітектура 1" width="500px">
+                <img src="images/architecture2.jpg" alt="Архітектура 2" width="500px">
+            </div>
+            <p>Текст про архітектуру...</p>
+            <dl>
+                <dt>Термін 1</dt>
+                <dd>Визначення 1</dd>
+                <dt>Термін 2</dt>
+                <dd>Визначення 2</dd>
+            </dl>
+        </section>
+        
+        <section>
+            Наявні послуги:
+            <table border="1">
+                <tr>
+                    <th>Запостити 1 раз</th>
+                    <th>Купити</th>
+                    <th>Постійна співпраця</th>
+                </tr>
+                <tr>
+                    <td>100 грн.</td>
+                    <td>500 грн.</td>
+                    <td>1000 грн. внеску</td>
+                </tr>
+                <tr>
+                    <td>Рядок 2</td>
+                    <td>Значення 2</td>
+                </tr>
+            </table>
+            <form>
+                <label for="subscribe">Підписатися на розсилку новинок:</label>
+                <input type="checkbox" id="subscribe" name="subscribe" value="subscribe"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <section>
+            Зареєструватися і обрати послугу:
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Мій Фотоблог</p>
+    </footer>
+</body>
 </html>
