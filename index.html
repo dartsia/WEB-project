@@ -26,16 +26,12 @@
                 <img src="images/nature1.jpg" alt="Природа 1" width="500px">
                 <img src="images/nature2.jpg" alt="Природа 2" width="500px">
             </div>
-            <p>Текст про природу...</p>
-            <ul>
-                <li>Елемент списку 1</li>
-                <li>Елемент списку 2</li>
-            </ul>
+            <p>Я намагаюсь багато подорожувати, особливо виїжджати на природу, тож роблю фотографії усього, що вважаю гарним (спойлер: майже всього, що бачу).
+                А також я люблю гуляти і фотографувати все, що можу, що часто є природою :)
+            </p>
             <form>
-                <label for="name">Ім'я:</label>
-                <input type="text" id="name" name="name"><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br><br>
+                <label for="comment">Коментар:</label><br>
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
                 <input type="submit" value="Submit">
             </form>
         </section>
@@ -46,11 +42,13 @@
                 <img src="images/sky1.jpg" alt="Небо 1" width="500px">
                 <img src="images/sky2.jpg" alt="Небо 2" width="500px">
             </div>
-            <p>Текст про небо...</p>
+            <p>Люблю фотографувати небо! У блозі будуть фотографії: </p>
             <ol>
-                <li>Елемент нумерованого списку 1</li>
-                <li>Елемент нумерованого списку 2</li>
+                <li>Світанку</li>
+                <li>Заходу сонця</li>
+                <li>Хмар і хмаринок</li>
             </ol>
+
             <form>
                 <label for="comment">Коментар:</label><br>
                 <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
@@ -64,13 +62,18 @@
                 <img src="images/architecture1.jpg" alt="Архітектура 1" width="500px">
                 <img src="images/architecture2.jpg" alt="Архітектура 2" width="500px">
             </div>
-            <p>Текст про архітектуру...</p>
+            <p>Я обожнюю споглядати архітектуру. </p>
             <dl>
-                <dt>Термін 1</dt>
-                <dd>Визначення 1</dd>
-                <dt>Термін 2</dt>
-                <dd>Визначення 2</dd>
+                <dt>Стара архітектура</dt>
+                <dd>Це моє кохання. Особливо коли будівлі підсвічені сонцем.</dd>
+                <dt>Сучасна архітектура</dt>
+                <dd>Іноді вона дуже гарна і креативна! Зокрема, в Європі (нові університети тощо).</dd>
             </dl>
+            <form>
+                <label for="comment">Коментар:</label><br>
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
         </section>
         
         <section>
@@ -86,19 +89,35 @@
                     <td>500 грн.</td>
                     <td>1000 грн. внеску</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>Рядок 2</td>
                     <td>Значення 2</td>
-                </tr>
+                </tr> -->
             </table>
+            <h2>Зареєструватися:</h2>
             <form>
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="passw1">Ваш новий пароль:</label>
+                <input type="password" id="passw1" name="passw1"><br><br>
+                <label for="passw2">Введіть пароль ще раз:</label>
+                <input type="password" id="passw2" name="passw2"><br><br>
+                <label for="service">Оберіть послугу:</label>
+                <select name="language" size="1">
+                    <option 
+                    selected value="post1">Запостити 1 раз
+                    <option value="buy">Купити
+                    <option value="collaborate">Постійна співпраця
+                </select><br><br>
+                <label for="file">Оберіть файл для завантаження (необов'язково):</label>
+                <input type="file" name="load" size="50"><br><br>
+                <!-- <input type="submit" value="Submit"> -->
                 <label for="subscribe">Підписатися на розсилку новинок:</label>
                 <input type="checkbox" id="subscribe" name="subscribe" value="subscribe"><br><br>
                 <input type="submit" value="Submit">
             </form>
-        </section>
-        <section>
-            Зареєструватися і обрати послугу:
         </section>
     </div>
 
