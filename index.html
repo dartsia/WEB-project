@@ -11,10 +11,10 @@
 </head>
 <body>
     <header id="main-header">
-        <h1 align="center">Мій Фотоблог</h1>
-        <a class="links" href="https://www.instagram.com/purp1e_penguin?igsh=MWkycXZxNXdhYjBqaA==">Мій інстаграм</a>
+        <h1 align="center">Мій Фотоблоґ</h1>
+        <a class="links" href="https://www.instagram.com/purp1e_penguin?igsh=MWkycXZxNXdhYjBqaA==">Мій інстаґрам</a>
         <nav class="links">
-            <ul>
+            <ul style="list-style-type: square;">
                 <li><a href="#">Головна</a></li>
                 <li><a href="#">Природа</a></li>
                 <li><a href="#">Небо</a></li>
@@ -24,15 +24,17 @@
     </header>
     
     <div id="main-content">
-        <section>
+        <img class="covers" src="images/nature_cover.jpg" alt="Природа обкладинка">
+        <section class="section-box" style="margin-bottom: 70px;">
             <h2 class="section-header">Природа</h2>
-            <div class="gallery">
+            <!-- <div class="gallery">
                 <img src="images/nature1.jpg" alt="Природа 1" width="500px">
                 <img src="images/nature2.jpg" alt="Природа 2" width="500px">
-            </div>
+            </div> -->
             <p class="text-desc">Я намагаюсь багато подорожувати, особливо виїжджати на природу, тож роблю фотографії усього, що вважаю гарним (спойлер: майже всього, що бачу).
                 А також я люблю гуляти і фотографувати все, що можу, що часто є природою :)
             </p>
+            <a href="#">Подивитися всю добірку</a>
             <form>
                 <label for="comment">Коментар:</label><br>
                 <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
@@ -40,12 +42,13 @@
             </form>
         </section>
         
-        <section>
+        <img class="covers" src="images/sky_cover.jpg" alt="Небо обкладинка">
+        <section class="section-box" style="margin-bottom: 25px;">
             <h2 class="section-header">Небо</h2>
-            <div class="gallery">
+            <!-- <div class="gallery">
                 <img src="images/sky1.jpg" alt="Небо 1" width="500px">
                 <img src="images/sky2.jpg" alt="Небо 2" width="500px">
-            </div>
+            </div> -->
             <p class="text-desc">Люблю фотографувати небо! У блозі будуть фотографії: </p>
             <ol class="text-desc">
                 <li>Світанку</li>
@@ -53,6 +56,7 @@
                 <li>Хмар і хмаринок</li>
             </ol>
 
+            <a href="#">Подивитися всю добірку</a>
             <form>
                 <label for="comment">Коментар:</label><br>
                 <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
@@ -60,12 +64,14 @@
             </form>
         </section>
         
-        <section>
+        <img class="covers" src="images/architecture_cover.jpg" alt="Архітектура обкладинка">
+        <section class="section-box">
+            <div>
             <h2 class="section-header">Архітектура</h2>
-            <div class="gallery">
+            <!-- <div class="gallery">
                 <img src="images/architecture1.jpg" alt="Архітектура 1" width="500px">
                 <img src="images/architecture2.jpg" alt="Архітектура 2" width="500px">
-            </div>
+            </div> -->
             <p class="text-desc">Я обожнюю споглядати архітектуру. </p>
             <dl class="text-desc">
                 <dt>Стара архітектура</dt>
@@ -73,11 +79,13 @@
                 <dt>Сучасна архітектура</dt>
                 <dd>Іноді вона дуже гарна і креативна! Зокрема, в Європі (нові університети тощо).</dd>
             </dl>
+            <a href="#">Подивитися всю добірку</a>
             <form>
                 <label for="comment">Коментар:</label><br>
                 <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
                 <input type="submit" value="Submit">
             </form>
+            </div>
         </section>
         
         <section>

@@ -7,31 +7,39 @@
 
 /* Basic styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: Garamond, serif;
+    /* font-family: Arial, sans-serif, ; */
+    background-color:floralwhite;
 }
 
 /* Header styles */
 #main-header {
-    background-color: #333;
-    color: #fff;
+    background-color:olive;
+    color:floralwhite;
     padding: 20px;
     text-align: center;
 }
 
+h1 {
+    font-style: Akmeist Decor Bold;
+}
+
 .links {
-    color: #fff;
+    color:floralwhite;
     text-decoration: none;
     margin-right: 20px;
 }
 
 /* Navigation styles */
 nav ul {
-    list-style-type: none;
+    list-style-type: square;
+    margin: 0;
+    padding: 0;
 }
 
 nav li {
     display: inline;
+    /* list-style-type: disc; */
 }
 
 nav a {
@@ -45,9 +53,22 @@ nav a {
     padding: 20px;
 }
 
+.covers {
+    box-shadow: 6px 6px 4px #666;
+    float: right;
+    width: 300px;
+}
+
 .section-header {
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 60px;
+}
+
+.section-box div {
+    border-color: olive;
+    border-width: 20px;
+    margin: 2px 2px olive;
+    padding: 2px 2px olive;
 }
 
 .gallery {
@@ -61,7 +82,12 @@ nav a {
 
 .text-desc {
     color: #666;
+    /* margin-top: 100px; */
+    margin-right: 10px;
     margin-bottom: 10px;
+    margin-left: 20px;
+    /* text-align: center; */
+    font: sans-serif;
 }
 
 /* Form styles */
@@ -78,7 +104,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
