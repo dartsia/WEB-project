@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sky & Architecture photoblog</title>
+    <style>
+
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Мій Фотоблог</h1>
-        <a href="https://www.instagram.com/purp1e_penguin?igsh=MWkycXZxNXdhYjBqaA==">Мій інстаграм</a>
-        <nav>
+    <header id="main-header">
+        <h1 align="center">Мій Фотоблог</h1>
+        <a class="links" href="https://www.instagram.com/purp1e_penguin?igsh=MWkycXZxNXdhYjBqaA==">Мій інстаграм</a>
+        <nav class="links">
             <ul>
                 <li><a href="#">Головна</a></li>
                 <li><a href="#">Природа</a></li>
@@ -21,12 +24,12 @@
     
     <div id="main-content">
         <section>
-            <h2>Природа</h2>
+            <h2 class="section-header">Природа</h2>
             <div class="gallery">
                 <img src="images/nature1.jpg" alt="Природа 1" width="500px">
                 <img src="images/nature2.jpg" alt="Природа 2" width="500px">
             </div>
-            <p>Я намагаюсь багато подорожувати, особливо виїжджати на природу, тож роблю фотографії усього, що вважаю гарним (спойлер: майже всього, що бачу).
+            <p class="text-desc">Я намагаюсь багато подорожувати, особливо виїжджати на природу, тож роблю фотографії усього, що вважаю гарним (спойлер: майже всього, що бачу).
                 А також я люблю гуляти і фотографувати все, що можу, що часто є природою :)
             </p>
             <form>
@@ -37,13 +40,13 @@
         </section>
         
         <section>
-            <h2>Небо</h2>
+            <h2 class="section-header">Небо</h2>
             <div class="gallery">
                 <img src="images/sky1.jpg" alt="Небо 1" width="500px">
                 <img src="images/sky2.jpg" alt="Небо 2" width="500px">
             </div>
-            <p>Люблю фотографувати небо! У блозі будуть фотографії: </p>
-            <ol>
+            <p class="text-desc">Люблю фотографувати небо! У блозі будуть фотографії: </p>
+            <ol class="text-desc">
                 <li>Світанку</li>
                 <li>Заходу сонця</li>
                 <li>Хмар і хмаринок</li>
@@ -57,13 +60,13 @@
         </section>
         
         <section>
-            <h2>Архітектура</h2>
+            <h2 class="section-header">Архітектура</h2>
             <div class="gallery">
                 <img src="images/architecture1.jpg" alt="Архітектура 1" width="500px">
                 <img src="images/architecture2.jpg" alt="Архітектура 2" width="500px">
             </div>
-            <p>Я обожнюю споглядати архітектуру. </p>
-            <dl>
+            <p class="text-desc">Я обожнюю споглядати архітектуру. </p>
+            <dl class="text-desc">
                 <dt>Стара архітектура</dt>
                 <dd>Це моє кохання. Особливо коли будівлі підсвічені сонцем.</dd>
                 <dt>Сучасна архітектура</dt>
@@ -77,7 +80,7 @@
         </section>
         
         <section>
-            Наявні послуги:
+            <h3 id="service-header">Наявні послуги:</h3>
             <table border="1">
                 <tr>
                     <th>Запостити 1 раз</th>
@@ -94,7 +97,7 @@
                     <td>Значення 2</td>
                 </tr> -->
             </table>
-            <h2>Зареєструватися:</h2>
+            <h2 id="register-header">Зареєструватися:</h2>
             <form>
                 <label for="name">Ім'я:</label>
                 <input type="text" id="name" name="name"><br><br>
@@ -122,7 +125,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Мій Фотоблог</p>
+        <p id="copyright">&copy; 2024 Мій Фотоблог</p>
     </footer>
 </body>
 </html>
