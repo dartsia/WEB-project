@@ -43,9 +43,17 @@ nav li {
 }
 
 nav a {
-    color: #fff;
+    color:floralwhite;
     text-decoration: none;
     margin-right: 20px;
+}
+
+.see-more {
+    color:indigo;
+}
+
+a:visited {
+    color:lightsalmon;
 }
 
 /* Main content styles */
@@ -61,6 +69,7 @@ nav a {
 
 .section-header {
     color: #333;
+    font-weight: bold;
     margin-bottom: 60px;
 }
 
@@ -87,7 +96,7 @@ nav a {
     margin-bottom: 10px;
     margin-left: 20px;
     /* text-align: center; */
-    font: sans-serif;
+    /* font: sans-serif; */
 }
 
 /* Form styles */
@@ -112,7 +121,8 @@ textarea {
 
 input[type="submit"] {
     background-color: #333;
-    color: #fff;
+    opacity: 0.40;
+    color: floralwhite;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -122,10 +132,12 @@ input[type="file"] {
     margin-top: 5px;
 }
 
+
+
 /* Footer styles */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color:olive;
+    color: floralwhite;
     padding: 20px;
     text-align: center;
 }
