@@ -38,12 +38,6 @@ nav ul {
     padding: 0;
 }
 
-/* nav a {
-    color:black;
-    text-decoration: none;
-    margin-right: 20px;
-} */
-
 .see-more {
     color:indigo;
 }
@@ -57,23 +51,10 @@ a:visited {
     padding: 20px;
 }
 
-.covers {
-    box-shadow: 6px 6px 4px #666;
-    float: right;
-    width: 300px;
-}
-
 .section-header {
     color: #333;
     font-weight: bold;
     margin-bottom: 60px;
-}
-
-.section-box div {
-    border-color: olive;
-    border-width: 20px;
-    margin: 2px 2px olive;
-    padding: 2px 2px olive;
 }
 
 .gallery {
@@ -87,12 +68,9 @@ a:visited {
 
 .text-desc {
     color: #666;
-    /* margin-top: 100px; */
     margin-right: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
-    /* text-align: center; */
-    /* font: sans-serif; */
 }
 
 /* Form styles */
@@ -227,3 +205,18 @@ footer {
       text-align: left;
     }
   }
+
+/* Анімація для появи */
+@keyframes appearence {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.covers {
+  box-shadow: 6px 6px 4px #666;
+  float: right;
+  width: 300px;
+  animation-name: appearence;
+  animation-duration: 2s;
+}
+
