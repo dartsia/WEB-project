@@ -15,15 +15,18 @@
     <header id="main-header">
         <h1 align="center">Мій Фотоблоґ</h1>
         <a class="links" href="https://www.instagram.com/purp1e_penguin?igsh=MWkycXZxNXdhYjBqaA==">Мій інстаґрам</a>
-        <nav class="links">
-            <ul style="list-style-type: square;">
-                <li><a href="#main">Головна</a></li>
-                <li><a href="#nature">Природа</a></li>
-                <li><a href="#sky">Небо</a></li>
-                <li><a href="#arch">Архітектура</a></li>
-            </ul>
-        </nav>
     </header>
+
+    <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">Домашня сторінка</a>
+        <a href="#news">Новини</a>
+        <a href="#contact">Контакти</a>
+        <a href="#about">Про проєкт</a>
+        <a href="#all">Всі фото</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
     <div id="main-content">
         <img class="covers" src="images/nature_cover.jpg" alt="Природа обкладинка">
@@ -191,11 +194,31 @@
                 <input type="submit" value="Submit">
             </form>
         </section>
+
+        <nav class="links">
+            <ul>
+                <li><a href="#home">Головна</a></li>
+                <li><a href="#nature">Природа</a></li>
+                <li><a href="#sky">Небо</a></li>
+                <li><a href="#arch">Архітектура</a></li>
+            </ul>
+        </nav>
     </div>
 
     <footer>
         <p id="copyright">&copy; 2024 Мій Фотоблог</p>
     </footer>
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+    </script>
 </body>
 
 </html>
