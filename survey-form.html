@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Photoblog Partner Survey</title>
+</head>
+<body>
+<h1>Опитування для майбутніх партнерів</h1>
+<form id="partnerSurvey">
+    <label for="name">1. Ваше ім'я:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">2. Ваша електронна пошта:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="photoGenre">3. З якої категорії ви найчастіше робите фото:</label>
+    <select id="photoGenre" name="photoGenre">
+        <option value="nat">Природа</option>
+        <option value="sky">Небо</option>
+        <option value="arch">Архітектура</option>
+        <option value="other">Інше</option>
+    </select>
+
+    <label for="experience">4. Який ваш досвід у фотографії (в роках):</label>
+    <input type="number" id="experience" name="experience">
+
+    <label for="uploadPhotos">5. Завантажте зразки вашої роботи (фото):</label>
+    <input type="file" id="uploadPhotos" name="uploadPhotos" accept="image/*" multiple>
+
+    <label>6. Які розміри файлів ви зазвичай маєте:</label><br>
+    <input type="checkbox" id="fileSizeSmall" name="fileSize" value="small">
+    <label for="fileSizeSmall">Маленькі (до 1 МБ)</label><br>
+    <input type="checkbox" id="fileSizeMedium" name="fileSize" value="medium">
+    <label for="fileSizeMedium">Середні (1-5 МБ)</label><br>
+    <input type="checkbox" id="fileSizeLarge" name="fileSize" value="large">
+    <label for="fileSizeLarge">Великі (понад 5 МБ)</label><br>
+
+    <label for="preferredColor">7. Виберіть ваш улюблений колір:</label>
+    <input type="color" id="preferredColor" name="preferredColor">
+
+    <label for="socialMedia">8. Вкажіть ваші соціальні медіа:</label>
+    <input type="url" id="socialMedia" name="socialMedia" placeholder="https://">
+
+    <label for="preferredTime">9. Коли вам зручно публікувати свої фото?</label>
+    <input type="time" id="preferredTime" name="preferredTime">
+
+    <label for="agreement">10. Ви погоджуєтеся з умовами партнерства?</label>
+    <input type="radio" id="agreementYes" name="agreement" value="yes">
+    <label for="agreementYes">Так</label>
+    <input type="radio" id="agreementNo" name="agreement" value="no">
+    <label for="agreementNo">Ні</label>
+
+    <button type="submit">Надіслати</button>
+</form>
+</body>
+</html>
