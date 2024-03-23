@@ -1,59 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>Photoblog Partner Survey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Photoblog Partner Survey</title>
 </head>
+
 <body>
-<h1 align="center">Опитування для майбутніх партнерів</h1>
-<form id="partnerSurvey">
-    <label for="name">1. Ваше ім'я:</label>
-    <input type="text" id="name" name="name">
+    <h1 align="center">Опитування для майбутніх партнерів</h1>
+    <form id="partnerSurvey">
+        <label for="name">1. Ваше ім'я:</label>
+        <input type="text" id="name" name="name">
 
-    <label for="email">2. Ваша електронна пошта:</label>
-    <input type="email" id="email" name="email">
+        <label for="email">2. Ваша електронна пошта:</label>
+        <input type="email" id="email" name="email">
 
-    <label for="photoGenre">3. З якої категорії ви найчастіше робите фото:</label>
-    <select id="photoGenre" name="photoGenre">
-        <option value="nat">Природа</option>
-        <option value="sky">Небо</option>
-        <option value="arch">Архітектура</option>
-        <option value="other">Інше</option>
-    </select>
+        <label for="photoGenre">3. З якої категорії ви найчастіше робите фото:</label>
+        <select id="photoGenre" name="photoGenre">
+            <option value="nat">Природа</option>
+            <option value="sky">Небо</option>
+            <option value="arch">Архітектура</option>
+            <option value="other">Інше</option>
+        </select>
 
-    <label for="experience">4. Який ваш досвід у фотографії (в роках):</label>
-    <input type="number" id="experience" name="experience">
+        <label for="experience">4. Який ваш досвід у фотографії (в роках):</label>
+        <input type="number" id="experience" name="experience">
 
-    <label for="uploadPhotos">5. Завантажте зразки ваших робіт (фото):</label>
-    <input type="file" id="uploadPhotos" name="uploadPhotos" accept="image/*" multiple>
+        <label for="uploadPhotos">5. Завантажте зразки ваших робіт (фото):</label>
+        <input type="file" id="uploadPhotos" name="uploadPhotos" accept="image/*" multiple>
 
-    <label>6. Які розміри файлів ви зазвичай маєте:</label><br>
-    <input type="checkbox" id="fileSizeSmall" name="fileSize" value="small">
-    <label for="fileSizeSmall">Маленькі (до 1 МБ)</label><br>
-    <input type="checkbox" id="fileSizeMedium" name="fileSize" value="medium">
-    <label for="fileSizeMedium">Середні (1-5 МБ)</label><br>
-    <input type="checkbox" id="fileSizeLarge" name="fileSize" value="large">
-    <label for="fileSizeLarge">Великі (понад 5 МБ)</label><br>
+        <label>6. Які розміри файлів ви зазвичай маєте:</label><br>
+        <input type="checkbox" id="fileSizeSmall" name="fileSize" value="small">
+        <label for="fileSizeSmall">Маленькі (до 1 МБ)</label><br>
+        <input type="checkbox" id="fileSizeMedium" name="fileSize" value="medium">
+        <label for="fileSizeMedium">Середні (1-5 МБ)</label><br>
+        <input type="checkbox" id="fileSizeLarge" name="fileSize" value="large">
+        <label for="fileSizeLarge">Великі (понад 5 МБ)</label><br>
 
-    <label for="preferredColor">7. Виберіть ваш улюблений колір:</label>
-    <input type="color" id="preferredColor" name="preferredColor">
+        <label for="preferredColor">7. Виберіть ваш улюблений колір:</label>
+        <input type="color" id="preferredColor" name="preferredColor">
 
-    <label for="socialMedia">8. Вкажіть вашу найбільш використовувану соц. мережу:</label>
-    <input type="url" id="socialMedia" name="socialMedia" placeholder="https://">
+        <label for="socialMedia">8. Вкажіть вашу найбільш використовувану соц. мережу:</label>
+        <input type="url" id="socialMedia" name="socialMedia" placeholder="https://">
 
-    <label for="preferredTime">9. Коли вам зручно публікувати свої фото?</label>
-    <input type="time" id="preferredTime" name="preferredTime">
+        <label for="preferredTime">9. Коли вам зручно публікувати свої фото?</label>
+        <input type="time" id="preferredTime" name="preferredTime">
 
-    <label for="agreement">10. Ви погоджуєтеся з умовами партнерства?</label>
-    <input type="radio" id="agreementYes" name="agreement" value="yes">
-    <label for="agreementYes">Так</label>
-    <input type="radio" id="agreementNo" name="agreement" value="no">
-    <label for="agreementNo">Ні</label>
+        <label for="agreement">10. Ви погоджуєтеся з умовами партнерства?</label>
+        <input type="radio" id="agreementYes" name="agreement" value="yes">
+        <label for="agreementYes">Так</label>
+        <input type="radio" id="agreementNo" name="agreement" value="no">
+        <label for="agreementNo">Ні</label>
 
-    <button type="submit">Надіслати</button>
-    <a href="#">Умови партнерства</a>
-</form>
+        <button>Надіслати</button> 
+        <a href="#">Умови партнерства</a>
+    </form>
+
+    <script>
+        // Function to handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const surveyData = {};
+            for (let [key, value] of formData.entries()) {
+                surveyData[key] = value;
+            }
+            saveToLocalStorage(surveyData);
+        }
+
+        // Function to save survey data to local storage
+        function saveToLocalStorage(data) {
+            let surveys = JSON.parse(localStorage.getItem('surveys')) || [];
+            surveys.push(data);
+            localStorage.setItem('surveys', JSON.stringify(surveys));
+        }
+
+        // Adding submit event listener to the form
+        document.getElementById('partnerSurvey').addEventListener('submit', handleSubmit);
+
+    </script>
+
 </body>
+
 </html>
