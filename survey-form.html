@@ -28,8 +28,9 @@
         <label for="experience">4. Який ваш досвід у фотографії (в роках):</label>
         <input type="number" id="experience" name="experience">
 
-        <label for="uploadPhotos">5. Завантажте зразки ваших робіт (фото):</label>
-        <input type="file" id="uploadPhotos" name="uploadPhotos" accept="image/*" multiple>
+        <label for="uploadPhotos">5. Зазначте контактний номер телефону (за бажанням):</label>
+        <input type="tel" id="telNumber" name="telNumber" placeholder="012-345-6789"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 
         <label>6. Які розміри файлів ви зазвичай маєте:</label><br>
         <input type="checkbox" id="fileSizeSmall" name="fileSize" value="small">
@@ -54,11 +55,91 @@
         <input type="radio" id="agreementNo" name="agreement" value="no">
         <label for="agreementNo">Ні</label>
 
-        <button>Надіслати</button> 
+        <button>Надіслати</button>
         <a href="#">Умови партнерства</a>
     </form>
 
+    <h2>Результати опитування</h2>
+    <!-- Dropdown for selecting filter -->
+    <select id="filterSelect">
+        <option value="all">Показати всі результати</option>
+        <option value="sky">Обрано небо у 3 питанні</option>
+        <option value="experience">Досвід не менше 2 років</option>
+        <option value="fileSize">Відповів маленькі або середні на 6 запитанні</option>
+    </select>
+
+    <div id="surveyResults"></div>
+
     <script>
+        // Function to display all survey results
+        function displayAllSurveyResults() {
+            const surveyResultsContainer = document.getElementById('surveyResults');
+            surveyResultsContainer.innerHTML = '';
+            const surveys = JSON.parse(localStorage.getItem('surveys')) || [];
+            if (surveys.length === 0) {
+                surveyResultsContainer.innerHTML = 'Результати опитування ще не збережені.';
+            } else {
+                let resultsHTML = '<ul>';
+                surveys.forEach(survey => {
+                    resultsHTML += '<li>';
+                    for (const key in survey) {
+                        resultsHTML += `<strong>${key}:</strong> ${survey[key]}<br>`;
+                    }
+                    resultsHTML += '</li>';
+                });
+                resultsHTML += '</ul>';
+                surveyResultsContainer.innerHTML = resultsHTML;
+            }
+        }
+
+        // Function to filter results based on selected criteria
+        function filterSurveyResults(filterValue) {
+            const surveyResultsContainer = document.getElementById('surveyResults');
+            surveyResultsContainer.innerHTML = '';
+            const surveys = JSON.parse(localStorage.getItem('surveys')) || [];
+
+            if (filterValue === 'all') {
+                displayAllSurveyResults(); // Show all results
+            } else if (filterValue === 'sky') {
+                const skyPhotographers = surveys.filter(survey => survey.photoGenre === 'sky');
+                displayFilteredResults(skyPhotographers); // Sky choice filter
+            } else if (filterValue === 'experience') {
+                const experiencedPhotographers = surveys.filter(survey => parseInt(survey.experience) >= 2);
+                displayFilteredResults(experiencedPhotographers); // Experience filter
+            } else if (filterValue === 'fileSize') {
+                const mediumOrSmallPhotographers = surveys.filter(survey => survey.fileSize === 'small' || survey.fileSize === 'medium');
+                displayFilteredResults(mediumOrSmallPhotographers); // File sizes filter
+            }
+        }
+
+        // Function to display filtered results
+        function displayFilteredResults(filteredSurveys) {
+            const surveyResultsContainer = document.getElementById('surveyResults');
+            if (filteredSurveys.length === 0) {
+                surveyResultsContainer.innerHTML = 'Немає результатів за обраним критерієм.';
+            } else {
+                let resultsHTML = '<ul>';
+                filteredSurveys.forEach(survey => {
+                    resultsHTML += '<li>';
+                    for (const key in survey) {
+                        resultsHTML += `<strong>${key}:</strong> ${survey[key]}<br>`;
+                    }
+                    resultsHTML += '</li>';
+                });
+                resultsHTML += '</ul>';
+                surveyResultsContainer.innerHTML = resultsHTML;
+            }
+        }
+
+        // Add event listener to dropdown
+        document.getElementById('filterSelect').addEventListener('change', function (event) {
+            const filterValue = event.target.value;
+            filterSurveyResults(filterValue); // all filter function on choice change
+        });
+
+        // Call function to display all results on page load
+        displayAllSurveyResults();
+
         // Function to handle form submission
         function handleSubmit(event) {
             event.preventDefault();
