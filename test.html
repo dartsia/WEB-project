@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тест по WEB дизайну</title>
+<style>
+    /* CSS стилі */
+    .question-container {
+        margin-bottom: 20px;
+    }
+    .result-container {
+        margin-top: 20px;
+    }
+    .correct-answer {
+        background-color: lightgreen;
+        color: white;
+    }
+    .incorrect-answer {
+        background-color: tomato;
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <h1>Тест по WEB дизайну</h1>
+    <div id="quiz-container"></div>
+    <div id="result-container" class="result-container"></div>
+
+    <script>
+        // JavaScript код
+        async function loadTestData() {
+            const response = await fetch('test.json');
+            const testData = await response.json();
+            displayTest(testData);
+        }
+
+        function displayTest(testData) {
+            const quizContainer = document.getElementById('quiz-container');
+            const resultContainer = document.getElementById('result-container');
+            const submitButton = document.createElement('button');
+            submitButton.textContent = 'Подивитися результат';
+            submitButton.addEventListener('click', showResults);
+
+            function showResults() {
+                let score = 0;
+                testData.questions.forEach((question, questionIndex) => {
+                    const selectedAnswerIndex = document.querySelector(`input[name="question${questionIndex}"]:checked`);
+                    if (selectedAnswerIndex !== null) {
+                        const selectedAnswer = parseInt(selectedAnswerIndex.value);
+                        const answerDiv = selectedAnswerIndex.parentElement;
+                        if (testData.questions[questionIndex].answers[selectedAnswer].isCorrect) {
+                            answerDiv.classList.add('correct-answer');
+                            score++;
+                        } else {
+                            answerDiv.classList.add('incorrect-answer');
+                        }
+                    } else {
+                        testData.questions[questionIndex].answers.forEach((answer, answerIndex) => {
+                            const answerDiv = document.querySelectorAll(`input[name="question${questionIndex}"]`)[answerIndex].parentElement;
+                            if (answer.isCorrect) {
+                                answerDiv.classList.add('correct-answer');
+                            }
+                        });
+                    }
+                });
+
+                resultContainer.innerHTML = `Ви відповіли правильно на ${score} з ${testData.questions.length} питань.`;
+            }
+
+            testData.questions.forEach((question, questionIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question-container');
+                questionDiv.innerHTML = `<p>${questionIndex + 1}. ${question.question}</p>`;
+
+                question.answers.forEach((answer, answerIndex) => {
+                    const answerInput = document.createElement('input');
+                    answerInput.type = 'radio';
+                    answerInput.name = `question${questionIndex}`;
+                    answerInput.value = answerIndex;
+
+                    const answerLabel = document.createElement('label');
+                    answerLabel.textContent = answer.answer;
+
+                    const answerDiv = document.createElement('div');
+                    answerDiv.appendChild(answerInput);
+                    answerDiv.appendChild(answerLabel);
+
+                    questionDiv.appendChild(answerDiv);
+                });
+
+                quizContainer.appendChild(questionDiv);
+            });
+
+            resultContainer.appendChild(submitButton);
+        }
+
+        loadTestData();
+    </script>
+</body>
+</html>
