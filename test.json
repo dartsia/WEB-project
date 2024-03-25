@@ -1,0 +1,110 @@
+{
+    "testName": "Тест по WEB дизайну",
+    "questions": [
+        {
+            "question": "Яку з цих платформ частіше використовують для створення фотоблогів?",
+            "answers": [
+                {
+                    "answer": "Facebook",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Instagram",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "LinkedIn",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "X (Twitter)",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Що таке 'фільтр' у фотографії?",
+            "answers": [
+                {
+                    "answer": "Ефект, який змінює вигляд фотографії",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Тип об'єктива для зйомки пейзажів",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Інструмент для розділення зображення на шари",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Програма для обробки тексту",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "question": "Що таке 'експозиція' в фотографії?",
+            "answers": [
+                {
+                    "answer": "Процес зйомки з різними налаштуваннями діафрагми",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Вигляд фотографії після обробки в графічному редакторі",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Світло, що падає на фотокамеру",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Кількість світла, яка потрапляє на фільм або сенсор при зйомці",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "Який формат файлу найчастіше використовують для збереження фотографій з максимальною якістю?",
+            "answers": [
+                {
+                    "answer": ".JPEG",
+                    "isCorrect": false
+                },
+                {
+                    "answer": ".PNG",
+                    "isCorrect": false
+                },
+                {
+                    "answer": ".GIF",
+                    "isCorrect": false
+                },
+                {
+                    "answer": ".RAW",
+                    "isCorrect": true
+                }
+            ]
+        },
+        {
+            "question": "Якість зображення на цифровій фотокамері залежить від:",
+            "answers": [
+                {
+                    "answer": "Розміру екрану",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Кількості кнопок на корпусі",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Кількості пікселів на сенсорі",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Форми корпусу",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
+}
