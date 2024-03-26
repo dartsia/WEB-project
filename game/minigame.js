@@ -21,6 +21,7 @@ let sticks = [];
 let trees = [];
 
 let score = 0;
+let finalScore;
 
 const canvasWidth = 375;
 const canvasHeight = 375;
@@ -264,6 +265,7 @@ function animate(timestamp) {
                 restartButton.style.display = "block";
                 return;
             }
+            finalScore = score;
             break;
         }
         default:
@@ -322,6 +324,7 @@ function draw() {
 
 restartButton.addEventListener("click", function (event) {
     event.preventDefault();
+    saveScoreToLocalStorage(finalScore); //saving score to a local storage
     resetGame();
     restartButton.style.display = "none";
 });
@@ -507,3 +510,22 @@ function getTreeY(x, baseHeight, amplitude) {
     const sineBaseY = window.innerHeight - baseHeight;
     return Math.sinus(x) * amplitude + sineBaseY;
 }
+
+function loadScoresFromLocalStorage() {
+    const scoresJSON = localStorage.getItem('scores');
+    // Перевіряємо, чи є дані в локальному сховищі та чи є вони масивом
+    if (scoresJSON && Array.isArray(JSON.parse(scoresJSON))) {
+        return JSON.parse(scoresJSON);
+    } else {
+        return []; // Повертаємо порожній масив, якщо немає даних або дані некоректні
+    }
+}
+
+function saveScoreToLocalStorage(score) {
+    let scores = loadScoresFromLocalStorage(); // Завантажуємо поточний масив результатів
+    scores.push(score); // Додаємо новий результат до масиву
+    localStorage.setItem('scores', JSON.stringify(scores)); // Зберігаємо оновлений масив у локальне сховище
+}
+
+
+
