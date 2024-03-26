@@ -11,10 +11,13 @@ let trees = [];
 
 const canvasWidth = 375;
 const canvasHeight = 375;
+const platformHeight = 100;
 
 const canvas = document.getElementById("game");
 canvas.width = window.innerWidth; // Make the Canvas full screen
 canvas.height = window.innerHeight;
+
+const ctx = canvas.getContext("2d");
 
 window.addEventListener("mousedown", function (event) {
     if (phase == "waiting") {
@@ -134,20 +137,64 @@ function animate(timestamp) {
 function draw() {
     ctx.save();
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-  
+
     drawBackground();
-  
+
     // Center main canvas area to the middle of the screen
     ctx.translate(
-      (window.innerWidth - canvasWidth) / 2 - sceneOffset,
-      (window.innerHeight - canvasHeight) / 2
+        (window.innerWidth - canvasWidth) / 2 - sceneOffset,
+        (window.innerHeight - canvasHeight) / 2
     );
-  
+
     // Draw scene
     drawPlatforms();
     drawHero();
     drawSticks();
-  
+
     // Restore transformation
     ctx.restore();
+}
+
+function drawPlatforms() {
+    platforms.forEach(({ x, w }) => {
+        // Draw platform
+        ctx.fillStyle = "black";
+        ctx.fillRect(
+            x,
+            canvasHeight - platformHeight,
+            w,
+            platformHeight + (window.innerHeight - canvasHeight) / 2
+        );
+
+        // Draw perfect area only if hero did not yet reach the platform
+        if (sticks.last().x < x) {
+            ctx.fillStyle = "red";
+            ctx.fillRect(
+                x + w / 2 - perfectAreaSize / 2,
+                canvasHeight - platformHeight,
+                perfectAreaSize,
+                perfectAreaSize
+            );
+        }
+    });
+}
+
+function drawSticks() {
+    sticks.forEach((stick) => {
+      ctx.save();
+  
+      // Move the anchor point to the start of the stick and rotate
+      ctx.translate(stick.x, canvasHeight - platformHeight);
+      ctx.rotate((Math.PI / 180) * stick.rotation);
+  
+      // Draw stick
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, -stick.length);
+      ctx.stroke();
+  
+      // Restore transformations
+      ctx.restore();
+    });
   }
