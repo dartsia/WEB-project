@@ -13,7 +13,41 @@
 
 <body>
     <header id="main-header">
-        <h1 align="center">Мій Фотоблоґ</h1>
+
+        <svg width="90" height="90" viewBox="20 20 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Draw the square -->
+            <rect x="40" y="40" width="40" height="40" stroke="darkblue" stroke-width="3" fill="none" />
+
+            <!-- Draw numbers -->
+            <text x="50" y="57" font-family="Arial" font-size="12" font-weight="bold" fill="darkblue">1</text>
+            <text x="63" y="57" font-family="Arial" font-size="12" font-weight="bold" fill="darkblue">0</text>
+            <text x="50" y="73" font-family="Arial" font-size="12" font-weight="bold" fill="darkblue">0</text>
+            <text x="63" y="73" font-family="Arial" font-size="12" font-weight="bold" fill="darkblue">1</text>
+
+            <!-- Draw lines -->
+            <!-- Top lines -->
+            <line x1="47" y1="35" x2="47" y2="20" stroke="darkblue" stroke-width="3" />
+            <line x1="55" y1="35" x2="55" y2="20" stroke="darkblue" stroke-width="3" />
+            <line x1="63" y1="35" x2="63" y2="20" stroke="darkblue" stroke-width="3" />
+            <line x1="71" y1="35" x2="71" y2="20" stroke="darkblue" stroke-width="3" />
+            <!-- Bottom lines -->
+            <line x1="47" y1="85" x2="47" y2="100" stroke="darkblue" stroke-width="3" />
+            <line x1="55" y1="85" x2="55" y2="100" stroke="darkblue" stroke-width="3" />
+            <line x1="63" y1="85" x2="63" y2="100" stroke="darkblue" stroke-width="3" />
+            <line x1="71" y1="85" x2="71" y2="100" stroke="darkblue" stroke-width="3" />
+            <!-- Left lines -->
+            <line x1="35" y1="47" x2="20" y2="47" stroke="darkblue" stroke-width="3" />
+            <line x1="35" y1="55" x2="20" y2="55" stroke="darkblue" stroke-width="3" />
+            <line x1="35" y1="63" x2="20" y2="63" stroke="darkblue" stroke-width="3" />
+            <line x1="35" y1="71" x2="20" y2="71" stroke="darkblue" stroke-width="3" />
+            <!-- Right lines -->
+            <line x1="85" y1="47" x2="100" y2="47" stroke="darkblue" stroke-width="3" />
+            <line x1="85" y1="55" x2="100" y2="55" stroke="darkblue" stroke-width="3" />
+            <line x1="85" y1="63" x2="100" y2="63" stroke="darkblue" stroke-width="3" />
+            <line x1="85" y1="71" x2="100" y2="71" stroke="darkblue" stroke-width="3" />
+        </svg>
+
+        <h1>Мій Фотоблоґ</h1>
         <a class="links" href="https://www.instagram.com/purp1e_penguin?igsh=MWkycXZxNXdhYjBqaA==">Мій інстаґрам</a>
     </header>
 
@@ -24,7 +58,7 @@
         <a href="#about">Про проєкт</a>
         <a href="#all">Всі фото</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
+            <i class="fa fa-bars"></i>
         </a>
     </div>
 
@@ -211,12 +245,12 @@
 
     <script>
         function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "topnav") {
-            x.className += " responsive";
-          } else {
-            x.className = "topnav";
-          }
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
         }
     </script>
 </body>
