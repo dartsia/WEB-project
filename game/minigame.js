@@ -1,6 +1,21 @@
 let phase = "waiting"; // waiting | stretching | turning | walking | transitioning | falling
 let lastTimestamp; // The timestamp of the previous requestAnimationFrame cycle
 
+let heroX; // Changes when moving forward
+let heroY; // Only changes when falling
+let sceneOffset; // Moves the whole game
+
+let platforms = [];
+let sticks = [];
+let trees = [];
+
+const canvasWidth = 375;
+const canvasHeight = 375;
+
+const canvas = document.getElementById("game");
+canvas.width = window.innerWidth; // Make the Canvas full screen
+canvas.height = window.innerHeight;
+
 window.addEventListener("mousedown", function (event) {
     if (phase == "waiting") {
         lastTimestamp = undefined;
@@ -115,3 +130,24 @@ function animate(timestamp) {
 
     lastTimestamp = timestamp;
 }
+
+function draw() {
+    ctx.save();
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  
+    drawBackground();
+  
+    // Center main canvas area to the middle of the screen
+    ctx.translate(
+      (window.innerWidth - canvasWidth) / 2 - sceneOffset,
+      (window.innerHeight - canvasHeight) / 2
+    );
+  
+    // Draw scene
+    drawPlatforms();
+    drawHero();
+    drawSticks();
+  
+    // Restore transformation
+    ctx.restore();
+  }
