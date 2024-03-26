@@ -1,3 +1,14 @@
+// Extend the base functionality of JavaScript
+Array.prototype.last = function () {
+    return this[this.length - 1];
+};
+
+// A sinus function that acceps degrees instead of radians
+Math.sinus = function (degree) {
+    return Math.sin((degree / 180) * Math.PI);
+};
+
+// Game data
 let phase = "waiting"; // waiting | stretching | turning | walking | transitioning | falling
 let lastTimestamp; // The timestamp of the previous requestAnimationFrame cycle
 
@@ -9,9 +20,33 @@ let platforms = [];
 let sticks = [];
 let trees = [];
 
+let score = 0;
+
 const canvasWidth = 375;
 const canvasHeight = 375;
 const platformHeight = 100;
+const heroDistanceFromEdge = 10; // While waiting
+const paddingX = 100; // The waiting position of the hero in from the original canvas size
+const perfectAreaSize = 10;
+
+// The background moves slower than the hero
+const backgroundSpeedMultiplier = 0.2;
+
+const hill1BaseHeight = 100;
+const hill1Amplitude = 10;
+const hill1Stretch = 1;
+const hill2BaseHeight = 70;
+const hill2Amplitude = 20;
+const hill2Stretch = 0.5;
+
+const stretchingSpeed = 4; // Milliseconds it takes to draw a pixel
+const turningSpeed = 4; // Milliseconds it takes to turn a degree
+const walkingSpeed = 4;
+const transitioningSpeed = 2;
+const fallingSpeed = 2;
+
+const heroWidth = 17; // 24
+const heroHeight = 30; // 40
 
 const canvas = document.getElementById("game");
 canvas.width = window.innerWidth; // Make the Canvas full screen
@@ -285,6 +320,12 @@ function draw() {
     ctx.restore();
 }
 
+restartButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    resetGame();
+    restartButton.style.display = "none";
+});
+
 function drawPlatforms() {
     platforms.forEach(({ x, w }) => {
         // Draw platform
@@ -298,7 +339,7 @@ function drawPlatforms() {
 
         // Draw perfect area only if hero did not yet reach the platform
         if (sticks.last().x < x) {
-            ctx.fillStyle = "red";
+            ctx.fillStyle = "green";
             ctx.fillRect(
                 x + w / 2 - perfectAreaSize / 2,
                 canvasHeight - platformHeight,
@@ -390,4 +431,79 @@ function drawRoundedRect(x, y, width, height, radius) {
     ctx.lineTo(x + radius, y);
     ctx.arcTo(x, y, x, y + radius, radius);
     ctx.fill();
+}
+
+function drawBackground() {
+    // Draw sky
+    var gradient = ctx.createLinearGradient(0, 0, 0, window.innerHeight);
+    gradient.addColorStop(0, "#BBD691");
+    gradient.addColorStop(1, "#FEF1E1");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+    // Draw hills
+    drawHill(hill1BaseHeight, hill1Amplitude, hill1Stretch, "#95C629");
+    drawHill(hill2BaseHeight, hill2Amplitude, hill2Stretch, "#659F1C");
+
+    // Draw trees
+    trees.forEach((tree) => drawTree(tree.x, tree.color));
+}
+
+// A hill is a shape under a stretched out sinus wave
+function drawHill(baseHeight, amplitude, stretch, color) {
+    ctx.beginPath();
+    ctx.moveTo(0, window.innerHeight);
+    ctx.lineTo(0, getHillY(0, baseHeight, amplitude, stretch));
+    for (let i = 0; i < window.innerWidth; i++) {
+        ctx.lineTo(i, getHillY(i, baseHeight, amplitude, stretch));
+    }
+    ctx.lineTo(window.innerWidth, window.innerHeight);
+    ctx.fillStyle = color;
+    ctx.fill();
+}
+
+function drawTree(x, color) {
+    ctx.save();
+    ctx.translate(
+        (-sceneOffset * backgroundSpeedMultiplier + x) * hill1Stretch,
+        getTreeY(x, hill1BaseHeight, hill1Amplitude)
+    );
+
+    const treeTrunkHeight = 5;
+    const treeTrunkWidth = 2;
+    const treeCrownHeight = 25;
+    const treeCrownWidth = 10;
+
+    // Draw trunk
+    ctx.fillStyle = "#7D833C";
+    ctx.fillRect(
+        -treeTrunkWidth / 2,
+        -treeTrunkHeight,
+        treeTrunkWidth,
+        treeTrunkHeight
+    );
+
+    // Draw crown
+    ctx.beginPath();
+    ctx.moveTo(-treeCrownWidth / 2, -treeTrunkHeight);
+    ctx.lineTo(0, -(treeTrunkHeight + treeCrownHeight));
+    ctx.lineTo(treeCrownWidth / 2, -treeTrunkHeight);
+    ctx.fillStyle = color;
+    ctx.fill();
+
+    ctx.restore();
+}
+
+function getHillY(windowX, baseHeight, amplitude, stretch) {
+    const sineBaseY = window.innerHeight - baseHeight;
+    return (
+        Math.sinus((sceneOffset * backgroundSpeedMultiplier + windowX) * stretch) *
+        amplitude +
+        sineBaseY
+    );
+}
+
+function getTreeY(x, baseHeight, amplitude) {
+    const sineBaseY = window.innerHeight - baseHeight;
+    return Math.sinus(x) * amplitude + sineBaseY;
 }
