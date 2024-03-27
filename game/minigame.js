@@ -513,18 +513,18 @@ function getTreeY(x, baseHeight, amplitude) {
 
 function loadScoresFromLocalStorage() {
     const scoresJSON = localStorage.getItem('scores');
-    // Перевіряємо, чи є дані в локальному сховищі та чи є вони масивом
+    // Checking whether the data is in local storage and whether it is an array
     if (scoresJSON && Array.isArray(JSON.parse(scoresJSON))) {
         return JSON.parse(scoresJSON);
     } else {
-        return []; // Повертаємо порожній масив, якщо немає даних або дані некоректні
+        return []; // Returning an empty array if there is no data or the data is incorrect
     }
 }
 
 function saveScoreToLocalStorage(score) {
-    let scores = loadScoresFromLocalStorage(); // Завантажуємо поточний масив результатів
-    scores.push(score); // Додаємо новий результат до масиву
-    localStorage.setItem('scores', JSON.stringify(scores)); // Зберігаємо оновлений масив у локальне сховище
+    let scores = loadScoresFromLocalStorage(); // Loading the current array of results
+    scores.push(score); // Adding new score to the array
+    localStorage.setItem('scores', JSON.stringify(scores)); // Saving the updated array to local storage
 }
 
 

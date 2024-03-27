@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini game results :3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <h2>Результати гри!! :3</h2>
+
+    <div id="gameResults"></div>
+
+    <script>
+        function loadScoresFromLocalStorage() {
+            const scoresJSON = localStorage.getItem('scores');
+            // Checking whether the data is in local storage and whether it is an array
+            if (scoresJSON && Array.isArray(JSON.parse(scoresJSON))) {
+                return JSON.parse(scoresJSON);
+            } else {
+                return []; // Returning an empty array if there is no data or the data is incorrect
+            }
+        }
+
+        // Function for displaying results
+        function showResults() {
+            // Loading scores from local storage
+            let scores = loadScoresFromLocalStorage();
+
+            // Sort results by ascending order
+            scores.sort((a, b) => a - b);
+
+            // Choosing three best and three worst results
+            let bestResults = scores.slice(-3).reverse();
+            let worstResults = scores.slice(0, 3);
+
+            // Displaying the results on the page
+            let results = document.getElementById("gameResults");
+            results.innerHTML = `<h2>Три найкращі результати:</h2>`;
+            bestResults.forEach((result, index) => {
+                results.innerHTML += `<p>${index + 1}. ${result}</p>`;
+            });
+            results.innerHTML += `<h2>Три найгірші результати:</h2>`;
+            worstResults.forEach((result, index) => {
+                results.innerHTML += `<p>${index + 1}. ${result}</p>`;
+            });
+        }
+
+        // Display results when the page loads
+        showResults();
+
+    </script>
+</body>
