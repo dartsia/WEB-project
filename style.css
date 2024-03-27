@@ -220,3 +220,20 @@ footer {
   animation-duration: 2s;
 }
 
+/* Add CSS for survey results */
+#surveyResults {
+  margin-top: 20px; /* Add margin between the results and the dropdown */
+}
+
+#surveyResults ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#surveyResults ul li {
+  border: 1px solid #ccc; /* Add border around each result */
+  padding: 10px;
+  margin-bottom: 20px; /* Add margin between each result */
+}
+
+
